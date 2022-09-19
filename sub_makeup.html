@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="KO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rwd</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/sub_makeup.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/animate(0701).css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <scrpt src="js/index.js"></scrpt>
+
+    <script>
+        $(function () {
+
+
+            $('.filterul li').on('click', function () {
+
+                let filterli = $('.sub-productlist > ul > li ');
+                let filter = $(this).attr('id');
+
+                let strName = filter;
+                filterTarget(strName.substr(6, 1));
+
+                function filterTarget(n) {
+
+                    if (n == 0) {
+
+                        var date = filterli.sort(function (a, b) {
+
+                            return new Date($(a).find("span.date").text()) > new Date($(b).find("span.date").text()) ? -1 : new Date($(a).find("span.date").text()) < new Date($(b).find("span.date").text()) ? 1 : 0;
+                        });
+                    }
+
+                    else if (n == 1) {
+
+                        var date = filterli.sort(function (a, b) {
+                            return Number($(a).find('span.won').text().replace(/[^0-9]/g, '')) < Number($(b).find('span.won').text().replace(/[^0-9]/g, '')) ? -1 : Number($(a).find('span.won').text().replace(/[^0-9]/g, '')) > Number($(b).find('span.date').text().replace(/[^0-9]/g, '')) ? 1 : 0;
+                        });
+
+                    }
+
+                    else {
+
+                        var date = filterli.sort(function (a, b) {
+                            return Number($(a).find('span.won').text().replace(/[^0-9]/g, '')) > Number($(b).find('span.won').text().replace(/[^0-9]/g, '')) ? -1 : Number($(a).find('span.won').text().replace(/[^0-9]/g, '')) < Number($(b).find('span.date').text().replace(/[^0-9]/g, '')) ? 1 : 0;
+                        });
+
+                    }
+
+                    $('.sub_prlistbox').html(date);
+
+
+                }
+
+            });
+
+
+            //array button
+
+            $('#array_default').on('click',function(){
+                $('.sub_productbox').css({'width':"33.33%"});
+                $('#array_split img').attr('src','img/icon/split_4_off.svg')
+                $(this).children('img').attr('src','img/icon/split_1.svg')
+            })
+
+            $('#array_split').on('click',function(){
+                $('.sub_productbox').css({'width':"20%"});
+                $('#array_default img').attr('src','img/icon/split_1_off.svg')
+                $(this).children('img').attr('src','img/icon/split_4.svg')
+            })
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <header id="header_mo">
+
+        <div id="header_nav_container">
+            <ul id="header_nav_left">
+                <li>
+                    <button class="header_nav_item nav_ham_menu">
+                        <img src="img/icon/menu.svg" alt="메뉴바">
+                    </button>
+                    <button class="header_nav_item nav_search">
+                        <img src="img/icon/search.svg" alt="검색"></button>
+                    <button class="header_nav_item nav_hidden">
+                        <img src="img/icon/search.svg" alt="검색"></button>
+                    <button class="header_nav_item nav_hidden">
+                        <img src="img/icon/search.svg" alt="검색"></button>
+
+                </li>
+            </ul>
+
+            <div class="header_nav_center">
+                <div class="header_nav_logo">
+                    <a href="index.html"><img src="img/logo_new.png" alt="logo"></a>
+                </div>
+            </div>
+
+
+            <ul id="header_nav_right">
+                <li>
+                    <button class="header_nav_item nav_map">
+                        <img src="img/icon/map.svg" alt="매장위치"></button>
+                    <button class="header_nav_item nav_wishlist">
+                        <img src="img/icon/heart.svg" alt="위시리스트"></button>
+                    <button class="header_nav_item nav_mypage">
+                        <img src="img/icon/mypage.svg" alt="마이페이지"></button>
+                    <button class="header_nav_item nav_shoppingbag">
+                        <img src="img/icon/shoppingbag.svg" alt="쇼핑백아이콘"></button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 헤더끝  -->
+
+
+
+        <div id="burger_menu_container">
+
+            <div id="burger_menu_wrap">
+
+                <div id="burger_menu_header">
+                    <div class="nav_header_left" style="visibility:hidden">
+                        <button class="nav_header_item"><img src="img/icon/arrowleft.svg" alt="이전페이지"></button>
+                    </div>
+
+                    <div class="nav_header_center">
+                        <p class="nav_header_text" id="no-header" style="visibility:hidden"></p>
+                        <p class="nav_header_text" id="new-header" style="visibility:hidden">NEW</p>
+                        <p class="nav_header_text" id="makeup-header" style="visibility:hidden">메이크업</p>
+                        <p class="nav_header_text" id="purfume-header" style="visibility:hidden">향수</p>
+                        <p class="nav_header_text" id="skincare-header" style="visibility:hidden">스킨케어</p>
+                        <p class="nav_header_text" id="private-header" style="visibility:hidden">Private</p>
+
+                    </div>
+
+                    <div class="burger_menu_closebox">
+                        <button class="burger_menu_close"><img src="img/icon/close.svg" alt="닫기"></button>
+                    </div>
+                </div>
+
+
+
+                <div class="level2_content">
+                    <ul class="burger_nav_list">
+
+                        <li>
+
+                            <div class="burger_button_container">
+                                <button class="burger_button" id="new_btn">
+                                    <span class="burger_menu_title">New</span>
+                                    <span class="burger_menu_rightarrow"><img src="img/icon/arrowright.svg"
+                                            alt="new다음페이지"></span>
+                                </button>
+                            </div>
+
+                            <div class="nav_level2_wrap" id="newlist">
+
+                                <nav class="nav_scroll">
+
+                                    <div class="hamsub_content_wrap">
+
+                                        <div class="ham_content_top">
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>NEW 올아워 파운데이션</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img src="img/bannerimg/hamsub_makeup.png"
+                                                            alt="올아워파운데이션">
+                                                    </li>
+                                                    <li class="menu_list_li last_list_el">
+                                                        <p class="menu_img_text">울트라 라이트
+                                                            텍스처로 하루종일 지속되는 하이-커버</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>NEW 몽 파리 오드 뚜왈렛 루미에르</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img
+                                                            src="img/bannerimg/hamsub_purfume.png" alt="올아워파운데이션">
+                                                    </li>
+                                                    <li class="menu_list_li last_list_el">
+                                                        <p class="menu_img_text">파리의 중심에서 만나는
+                                                            사랑을 담은 향수</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>NEW 와이 오드 뚜왈렛</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img
+                                                            src="img/bannerimg/hamsub_purfume2.png" alt="올아워파운데이션">
+                                                    </li>
+                                                    <li class="menu_list_li last_list_el">
+                                                        <p class="menu_img_text">맑고 푸른 바다에서 영감
+                                                            받은 미네랄 우디 푸제르 향수</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>NEW 더 슬림 벨뱃 래디컬</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img src="img/bannerimg/hamsub_lips.png"
+                                                            alt="올아워파운데이션">
+                                                    </li>
+                                                    <li class="menu_list_li last_list_el ">
+                                                        <p class="menu_img_text">NEW 쉐이드 출시</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                        <!--menu_acc closed-->
+
+                                        <ul class="hamsub_bottom">
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">입생로랑 뷰티 매장찾기</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/map.svg" alt="매장찾기"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <a
+                                                            href="http://hye1201.dothome.co.kr/g5/bbs/board.php?bo_table=qa"></a><span
+                                                            class="level2_bottom_title">F A Q</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/faq.svg" alt="FAQ"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        <!--hamsub_bottom-->
+
+
+                                    </div>
+                                    <!--hamsub_content_wrap-->
+
+
+
+
+                                </nav>
+                                <!--nav_scroll-->
+
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <div class="burger_button_container">
+                                <button class="burger_button" id="makeup_btn">
+                                    <span class="burger_menu_title">메이크업</span>
+                                    <span class="burger_menu_rightarrow"><img src="img/icon/arrowright.svg"
+                                            alt="new다음페이지"></span>
+                                </button>
+                            </div>
+
+
+                            <div class="nav_level2_wrap" id="makeuplist">
+
+                                <nav class="nav_scroll">
+
+                                    <div class="hamsub_content_wrap">
+
+                                        <div class="ham_content_top">
+
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>NEW 올아워 파운데이션</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img src="img/bannerimg/hamsub_makeup.png"
+                                                            alt="올아워파운데이션">
+                                                    </li>
+                                                    <li class="menu_list_li test">
+                                                        <p class="menu_img_text">울트라 라이트
+                                                            텍스처로 하루종일 지속되는 하이-커버</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="hamsub_menu_name">
+                                                <p class="hamsub_item_name">메이크업</p>
+                                            </div>
+
+                                            <div class="hamsub_menu_container menu_face">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="sub_makeup.html">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">페이스</span>
+                                                                <img src="img/icon/arrowright.svg" alt="페이스페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">베이스/프라이머</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">쿠션</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">파운데이션</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">컨실러</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">블러셔/브론저</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">하이라이터</a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                            <!--menu_face closed-->
+
+                                            <div class="hamsub_menu_container menu_lips">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">립</span>
+                                                                <img src="img/icon/arrowright.svg" alt="립 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">립스틱</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">립틴트</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">스마트 틴트 디바이스</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">가상메이크업</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <!--menu_lips closed-->
+
+
+                                            <div class="hamsub_menu_container menu_eyes">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">아이</span>
+                                                                <img src="img/icon/arrowright.svg" alt="아이 화장품 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">마스카라</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">아이섀도</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">아이라이너</a>
+                                                    </li>
+
+
+                                                    <li class="menu_list_li last_list_el ">
+                                                        <a href="#">아이브로우</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!--menu_eyes closed-->
+
+                                            <div class="hamsub_menu_container menu_acc">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">악세서리</span>
+                                                                <img src="img/icon/arrowright.svg" alt="악세서리 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">
+                                                            <div>브러쉬/어플리케이터</div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+                                        </div>
+                                        <!--menu_acc closed-->
+
+                                        <ul class="hamsub_bottom">
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">입생로랑 뷰티 매장찾기</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/map.svg" alt="매장찾기"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">F A Q</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/faq.svg" alt="FAQ"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        <!--hamsub_bottom-->
+
+
+                                    </div>
+                                    <!--hamsub_content_wrap-->
+
+
+
+
+                                </nav>
+                                <!--nav_scroll-->
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="burger_button_container">
+                                <button class="burger_button" id="purfume_btn">
+                                    <span class="burger_menu_title">향수</span>
+                                    <span class="burger_menu_rightarrow"><img src="img/icon/arrowright.svg"
+                                            alt="new다음페이지"></span>
+                                </button>
+                            </div>
+
+                            <div class="nav_level2_wrap" id="purfumelist">
+                                <nav class="nav_scroll">
+
+                                    <div class="hamsub_content_wrap">
+
+                                        <div class="ham_content_top">
+
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>NEW 몽 파리 오드 뚜왈렛 루미에르</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img
+                                                            src="img/bannerimg/hamsub_purfume.png"
+                                                            alt="몽 파리 오드 뚜왈렛 루미에르">
+                                                    </li>
+                                                    <li class="menu_list_li test">
+                                                        <p class="menu_img_text">파리의 중심에서
+                                                            만나는 빛과 사랑을 담은 향수</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="hamsub_menu_name">
+                                                <p class="hamsub_item_name">향수</p>
+                                            </div>
+
+                                            <div class="hamsub_menu_container purfume0">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">여성향수</span>
+                                                                <img src="img/icon/arrowright.svg" alt="페이스페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">리브르</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">몽파리</a>
+                                                    </li>
+
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">블랙오피움</a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                            <!--여성향수 closed-->
+
+                                            <div class="hamsub_menu_container purfume1">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">남성향수</span>
+                                                                <img src="img/icon/arrowright.svg" alt="립 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">와이</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">롬므</a>
+                                                    </li>
+
+
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">라 뉘 드 롬므</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <!--남성향수 closed-->
+
+                                        </div>
+                                        <!--스킨 컬렉션 closed-->
+
+                                        <ul class="hamsub_bottom">
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">입생로랑 뷰티 매장찾기</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/map.svg" alt="매장찾기"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">F A Q</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/faq.svg" alt="FAQ"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        <!--hamsub_bottom-->
+
+
+                                    </div>
+                                    <!--hamsub_content_wrap-->
+
+
+                                </nav>
+                                <!--nav_scroll-->
+
+                            </div>
+                        </li>
+                        <!--makeup closed-->
+
+                        <li>
+                            <div class="burger_button_container">
+                                <button class="burger_button" id="skincare_btn">
+                                    <span class="burger_menu_title">스킨케어</span>
+                                    <span class="burger_menu_rightarrow"><img src="img/icon/arrowright.svg"
+                                            alt="new다음페이지"></span>
+                                </button>
+                            </div>
+
+
+                            <div class="nav_level2_wrap" id="skincarelist">
+
+                                <nav class="nav_scroll">
+
+                                    <div class="hamsub_content_wrap">
+
+                                        <div class="ham_content_top">
+
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>BEST 퓨어샷 나이트 리부트 세럼</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img
+                                                            src="img/bannerimg/hamsub_skincare.png" alt="나이트 리부트 세럼">
+                                                    </li>
+                                                    <li class="menu_list_li test">
+                                                        <p class="menu_img_text">데일리 각질 케어
+                                                            안티에이징 세럼</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="hamsub_menu_name">
+                                                <p class="hamsub_item_name">스킨케어</p>
+                                            </div>
+
+                                            <div class="hamsub_menu_container skincare0">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">제품 유형별</span>
+                                                                <img src="img/icon/arrowright.svg" alt="페이스페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">클렌저/토너</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">세럼</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">에멀젼/크림</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">아이/립 케어</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">UV프로덕션/베이스</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">스페셜 케어</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">메이크업 세팅 스프레이</a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                            <!--제품 유형별 closed-->
+
+                                            <div class="hamsub_menu_container skincare1">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">피부 고민별</span>
+                                                                <img src="img/icon/arrowright.svg" alt="립 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">보습</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">피부 보호 & 자외선 차단</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">화이트닝 & 광채</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">주름 & 탄력 개선</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <!--피부 고민별 closed-->
+
+
+                                            <div class="hamsub_menu_container skincare2">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">제품 라인별</span>
+                                                                <img src="img/icon/arrowright.svg" alt="아이 화장품 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">퓨어샷</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">오 후즈</a>
+                                                    </li>
+
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">탑 시크릿</a>
+                                                    </li>
+
+
+                                                </ul>
+                                            </div>
+                                            <!--제품 라인별 closed-->
+
+                                            <div class="hamsub_menu_container skincare3">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">스킨케어 컬렉션</span>
+                                                                <img src="img/icon/arrowright.svg" alt="악세서리 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">
+                                                            <div>퓨어샷 라인 소개</div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+                                        </div>
+                                        <!--스킨 컬렉션 closed-->
+
+                                        <ul class="hamsub_bottom">
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">입생로랑 뷰티 매장찾기</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/map.svg" alt="매장찾기"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">F A Q</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/faq.svg" alt="FAQ"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        <!--hamsub_bottom-->
+
+
+                                    </div>
+                                    <!--hamsub_content_wrap-->
+
+
+
+
+                                </nav>
+                                <!--nav_scroll-->
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="burger_button_container">
+                                <button class="burger_button" id="private_btn">
+                                    <span class="burger_menu_title">Private</span>
+                                    <span class="burger_menu_rightarrow"><img src="img/icon/arrowright.svg"
+                                            alt="new다음페이지"></span>
+                                </button>
+                            </div>
+
+
+                            <div class="nav_level2_wrap" id="privatelist">
+
+
+                                <nav class="nav_scroll">
+
+                                    <div class="hamsub_content_wrap">
+
+                                        <div class="ham_content_top">
+
+                                            <div class="hamsub_content_new">
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li">
+                                                        <p>NEW 올아워 파운데이션</p>
+                                                    </li>
+                                                    <li class="menu_list_new"><img src="img/bannerimg/hamsub_makeup.png"
+                                                            alt="올아워파운데이션">
+                                                    </li>
+                                                    <li class="menu_list_li test">
+                                                        <p class="menu_img_text">울트라 라이트
+                                                            텍스처로 하루종일 지속되는 하이-커버</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="hamsub_menu_name">
+                                                <p class="hamsub_item_name">메이크업</p>
+                                            </div>
+
+                                            <div class="hamsub_menu_container menu_face">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">페이스</span>
+                                                                <img src="img/icon/arrowright.svg" alt="페이스페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">베이스/프라이머</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">쿠션</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">파운데이션</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">컨실러</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">블러셔/브론저</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">하이라이터</a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                            <!--menu_face closed-->
+
+                                            <div class="hamsub_menu_container menu_lips">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">립</span>
+                                                                <img src="img/icon/arrowright.svg" alt="립 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">립스틱</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">립틴트</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">스마트 틴트 디바이스</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">가상메이크업</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <!--menu_lips closed-->
+
+
+                                            <div class="hamsub_menu_container menu_eyes">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">아이</span>
+                                                                <img src="img/icon/arrowright.svg" alt="아이 화장품 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">마스카라</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">아이섀도</a>
+                                                    </li>
+
+                                                    <li class="menu_list_li">
+                                                        <a href="#">아이라이너</a>
+                                                    </li>
+
+
+                                                    <li class="menu_list_li last_list_el ">
+                                                        <a href="#">아이브로우</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!--menu_eyes closed-->
+
+                                            <div class="hamsub_menu_container menu_acc">
+
+                                                <ul class="hamsub_menu_list">
+                                                    <li class="menu_list_li division_line">
+                                                        <a href="#">
+                                                            <div class="menu_list_title">
+                                                                <span class="hamsub_item_name">악세서리</span>
+                                                                <img src="img/icon/arrowright.svg" alt="악세서리 페이지 이동">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="menu_list_li last_list_el">
+                                                        <a href="#">
+                                                            <div>브러쉬/어플리케이터</div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+                                        </div>
+                                        <!--menu_acc closed-->
+
+                                        <ul class="hamsub_bottom">
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">입생로랑 뷰티 매장찾기</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/map.svg" alt="매장찾기"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="level2_button_container">
+                                                    <button class="level2_bottom_btn">
+                                                        <span class="level2_bottom_title">F A Q</span>
+                                                        <span class="level2_bottom_righticon"><img
+                                                                src="img/icon/faq.svg" alt="FAQ"></span>
+                                                    </button>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        <!--hamsub_bottom-->
+
+
+                                    </div>
+                                    <!--hamsub_content_wrap-->
+
+
+                                </nav>
+                                <!--nav_scroll-->
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <ul class="ham_bottom">
+
+                    <li>
+                        <div class="burger_button_container">
+                            <button class="burger_bottom_btn">
+                                <span class="burger_menu_title">마이페이지</span>
+                                <span class="burger_menu_righticon"><img src="img/icon/mypage.svg"
+                                        alt="new다음페이지"></span>
+                            </button>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="burger_button_container">
+                            <button class="burger_bottom_btn">
+                                <span class="burger_menu_title">입생로랑 뷰티 매장찾기</span>
+                                <span class="burger_menu_righticon"><img src="img/icon/map.svg" alt="매장찾기"></span>
+                            </button>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="burger_button_container">
+                            <button class="burger_bottom_btn">
+                                <span class="burger_menu_title">F A Q</span>
+                                <span class="burger_menu_righticon"><img src="img/icon/faq.svg" alt="FAQ"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+
+
+            </div>
+            <!--burger_menu_wrap-->
+        </div>
+
+    </header>
+
+
+    <header id="header_desktop">
+
+        <div id="header_destktop_container">
+            <ul id="header_destktop_left">
+                <li>
+                    <button class="header_nav_item nav_ham_menu">
+                        <img src="img/icon/menu.svg" alt="메뉴바">
+                    </button>
+                    <button class="header_nav_item nav_search">
+                        <img src="img/icon/search.svg" alt="검색"></button>
+                    <button class="header_nav_item nav_hidden">
+                        <img src="img/icon/search.svg" alt="검색"></button>
+                    <button class="header_nav_item nav_hidden">
+                        <img src="img/icon/search.svg" alt="검색"></button>
+
+                </li>
+            </ul>
+
+            <div class="header_destktop_center">
+                <div class="header_nav_logo">
+                    <a href="index.html"><img src="img/logo_new.png" alt="logo"></a>
+                </div>
+            </div>
+
+
+            <ul id="header_nav_right">
+                <li>
+                    <button class="header_nav_item nav_map">
+                        <img src="img/icon/map.svg" alt="매장위치"></button>
+                    <button class="header_nav_item nav_wishlist">
+                        <img src="img/icon/heart.svg" alt="위시리스트"></button>
+                    <button class="header_nav_item nav_mypage">
+                        <img src="img/icon/mypage.svg" alt="마이페이지"></button>
+                    <button class="header_nav_item nav_shoppingbag">
+                        <img src="img/icon/shoppingbag.svg" alt="쇼핑백아이콘"></button>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <section id="desktop_menu_container">
+
+            <article id="desktop_menu_wrap">
+
+
+
+                <ul class="desktop_nav_list">
+
+                    <li>
+
+                        <button class="desktop_button" id="gnb0">
+                            <span class="burger_menu_title">New</span>
+                        </button>
+
+
+                        <div class="desktop_level2_wrap makeup">
+
+                            <div class="desktop_content_top test">
+
+                                <div class="desktop_content_new">
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li">
+                                            <p>NEW 올아워 파운데이션</p>
+                                        </li>
+                                        <li class="desktop_list_new"><img src="img/bannerimg/hamsub_makeup.png"
+                                                alt="올아워파운데이션">
+                                        </li>
+                                        <li class="desktop_list_li">
+                                            <p class="menu_img_text"></p>울트라 라이트
+                                            텍스처로 하루종일 지속되는 하이-커버</p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="desktop_content_new">
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li">
+                                            <p>NEW 몽 파리 오드 뚜왈렛 루미에르</p>
+                                        </li>
+                                        <li class="desktop_list_new"><img src="img/bannerimg/hamsub_purfume.png"
+                                                alt="올아워파운데이션">
+                                        </li>
+                                        <li class="desktop_list_li">
+                                            <p class="menu_img_text">파리의 중심에서 만나는 사랑을 담은 향수
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="desktop_content_new">
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li">
+                                            <p>NEW 와이 오드 뚜왈렛</p>
+                                        </li>
+                                        <li class="desktop_list_new"><img src="img/bannerimg/hamsub_purfume2.png"
+                                                alt="올아워파운데이션">
+                                        </li>
+                                        <li class="desktop_list_li">
+                                            <p class="menu_img_text">맑고 푸른 바다에서 영감 받은 미네랄 우디
+                                                푸제르 향수</p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="desktop_content_new">
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li">
+                                            <p>NEW 더 슬림 벨뱃 래디컬</p>
+                                        </li>
+                                        <li class="desktop_list_new"><img src="img/bannerimg/hamsub_lips.png"
+                                                alt="올아워파운데이션">
+                                        </li>
+                                        <li class="desktop_list_li">
+                                            <p class="menu_img_text">NEW 쉐이드 출시</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--desktop_content_top-->
+                        </div>
+                        <!--desktop_level2_wrap makeup-->
+
+
+                    </li>
+
+                    <li>
+
+                        <button class="desktop_button" id="gnb0">
+                            <span class="burger_menu_title">메이크업</span>
+                        </button>
+
+
+                        <div class="desktop_level2_wrap makeup">
+                            <div class="desktop_content_top">
+
+                                <div class="desktop_content_new">
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li">
+                                            <p>NEW 올아워 파운데이션</p>
+                                        </li>
+                                        <li class="desktop_list_new"><img src="img/bannerimg/hamsub_makeup.png"
+                                                alt="올아워파운데이션">
+                                        </li>
+                                        <li class="desktop_list_li">
+                                            <p class="menu_img_text">울트라 라이트
+                                                텍스처로 하루종일 지속되는 하이-커버</p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="desktop_menu_container makeup0">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="sub_makeup.html">
+                                                <div class="desktop_list_title">
+                                                <span class="desktop_item_name">페이스</span>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">베이스/프라이머</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">쿠션</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">파운데이션</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">컨실러</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">블러셔</a>
+                                        </li>
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">하이라이터</a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <!-- 페이스 closed-->
+
+                                <div class="desktop_menu_container makeup1">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">립</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">립스틱</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">립틴트</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">가상메이크업</a>
+                                        </li>
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">스마트틴트 디바이스</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--립 closed-->
+
+                                <div class="desktop_menu_container makeup2">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">아이</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">마스카라</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">아이섀도</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">아이라이너</a>
+                                        </li>
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">아이브로우</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--아이 closed-->
+
+                                <div class="desktop_menu_container makeup3">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">악세서리</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">브러쉬/어플리케이터</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--악세서리 closed-->
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+
+                        <button class="desktop_button" id="gnb0">
+                            <span class="burger_menu_title">향수</span>
+                        </button>
+
+
+                        <div class="desktop_level2_wrap purfume">
+                            <div class="desktop_content_top">
+
+                                <div class="desktop_content_new">
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li">
+                                            <p>몽 파리 오드 뚜왈렛 루미에르</p>
+                                        </li>
+                                        <li class="desktop_list_new"><img src="img/bannerimg/hamsub_purfume.png"
+                                                alt="올아워파운데이션">
+                                        </li>
+                                        <li class="desktop_list_li">
+                                            <p class="menu_img_text">파리의 중심에서 만나는 사랑을 담은 향수
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="desktop_menu_container purfume0">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">여성향수</span>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">리브르</a>
+                                        </li>
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">블랙오피움</a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <!-- 여성향수 closed-->
+
+                                <div class="desktop_menu_container purfume1">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">남성향수</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">와이</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">롬므</a>
+                                        </li>
+
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">라 뉘 드 롬므</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--남성향수 closed-->
+
+                                <div class="desktop_menu_container purfume2">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">립</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">립스틱</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">립틴트</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">가상메이크업</a>
+                                        </li>
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">스마트틴트 디바이스</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+
+                        <button class="desktop_button" id="gnb0">
+                            <span class="burger_menu_title">스킨케어</span>
+                        </button>
+
+
+                        <div class="desktop_level2_wrap skincare">
+                            <div class="desktop_content_top">
+
+                                <div class="desktop_content_new">
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li">
+                                            <p>BEST 퓨어샷 나이트 리부트 세럼</p>
+                                        </li>
+                                        <li class="desktop_list_new"><img src="img/bannerimg/hamsub_skincare.png"
+                                                alt="올아워파운데이션">
+                                        </li>
+                                        <li class="desktop_list_li">
+                                            <p class="menu_img_text">데일리 각질 케어 안티에이징 세럼</p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="desktop_menu_container skicare0">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">제품유형별</span>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">클렌저/토너</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">세럼</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">에멀전/크림</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">아이/립케어</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">UV프로덕션/베이스</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">스페셜 케어</a>
+                                        </li>
+
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">메이크업 세팅 스프레이</a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <!-- 제품유형별 closed-->
+
+                                <div class="desktop_menu_container skicare1">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">피부 고민별</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">보습</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">피부 보호&자외선 차단</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">화이트닝&광채</a>
+                                        </li>
+
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">주름&탄력개선</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--피부고민별 closed-->
+
+                                <div class="desktop_menu_container skicare2">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">제품 라인별</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">퓨어샷</a>
+                                        </li>
+
+                                        <li class="desktop_list_li">
+                                            <a href="#">오 후즈</a>
+                                        </li>
+
+
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">탑 시크릿</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--제품라인별 closed-->
+
+                                <div class="desktop_menu_container skicare3">
+
+                                    <ul class="desktop_menu_list">
+                                        <li class="desktop_list_li division_line">
+                                            <a href="#">
+                                                <div class="desktop_list_title">
+                                                    <span class="desktop_item_name">스킨케어컬렉션</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="desktop_list_li last_list_el">
+                                            <a href="#">퓨터샷 라인소개</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--제품라인별 closed-->
+                            </div>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </article>
+        </section>
+    </header>
+
+
+    <section id="sub_makeup">
+
+        <div id="submakeup_top">
+            <div class="subtop">
+                <div class="subtop_img">
+                    <img src="img/bannerimg/sub_foundation_mo.png" alt="파운데이션이미지">
+                </div>
+
+                <div class="subtop_title">
+                    <p>메이크업</p>
+                    <p>페이스</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="sub_content">
+
+            <div class="sub_filterbar">
+
+                <p>페이스</p>
+
+                <div class="filterlist">
+                    <div>
+                        <img src="img/icon/filter.svg" alt="필터이미지">
+                    </div>
+
+                    <ul class="filterul">
+                        <li id="filter0" class="active">신제품순</li>
+                        <li id="filter1">낮은 가격순</li>
+                        <li id="filter2">높은 가격순</li>
+                    </ul>
+                </div>
+
+                <div class="filter_split">
+                    <button id="array_default"><img src="img/icon/split_1.svg" alt=""></button>
+                    <button id="array_split"><img src="img/icon/split_4_off.svg" alt=""></button>
+                </div>
+            </div>
+
+
+            <!-- 상품 리스트 -->
+            <div class="sub-productlist">
+                <ul class="sub_prlistbox">
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/best1.png"
+                                        alt="쿠션상품"></div>
+                                <span class="product_line"></span>
+
+                            </div>
+
+                            <div class="colorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#D3B291"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#C3A080"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#D5AE85"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#E2BFA9"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#EFD2C0"></div>
+                                    </li>
+                                    <li><span class="shade_sub"> +2 </span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">뚜쉬 에끌라 글로우-팩트 쿠션</p>
+                            <p class="Product_sub_name">NEW 잉크 쿠션</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">94,000원</span>
+                                <span class="date">2022/09/16</span>
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/best2.png"
+                                        alt="립글로즈"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#CC4F43"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#F3CCC4"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#B66C50"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#B84E54"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#8B3D4F"></div>
+                                    </li>
+                                    <li><span class="shade_sub"> +5 </span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">루쥬 볼륍떼 캔디 글레이즈</p>
+                            <p class="Product_sub_name">캔디글레이즈 컬러밤</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">49,000원</span>
+                                <span class="date">2022/09/13</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/best3.png"
+                                        alt="파운데이션이미지"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#E9C59A"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#EBC7A4"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#E1B99A"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#DFB597"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#ECC29D"></div>
+                                    </li>
+                                    <li><span class="shade_sub"> +2 </span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">올아워 파운데이션</p>
+                            <p class="Product_sub_name">올아워 파운데이션</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">89,000원</span>
+                                <span class="date">2022/09/17</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/best4.png"
+                                        alt="리브르향수"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox hidecolorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#D3B291"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#C3A080"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#D5AE85"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#E2BFA9"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#EFD2C0"></div>
+                                    </li>
+                                    <li><span class="shade_sub">0</span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">리브르 오 드 빠르펭</p>
+                            <p class="Product_sub_name">아이코닉 향수</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">103,000원</span>
+                                <span class="date">2022/10/05</span>
+
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/lips1.png"
+                                        alt="루쥬 볼륍떼 샤인"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#D13E38"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#B24B53"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#E78485"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#A13634"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#B12A27"></div>
+                                    </li>
+                                    <li><span class="shade_sub">+7</span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">루쥬 볼륍떼 샤인</p>
+                            <p class="Product_sub_name">멜팅 샤인 립스틱</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">49,000원</span>
+                                <span class="date">2022/10/08</span>
+
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/lips2.png"
+                                        alt="루쥬 쀠르 구뛰르 더 볼드"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#8E251C"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#BE2A21"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#A54E33"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#BE3F27"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#A23125"></div>
+                                    </li>
+                                    <li><span class="shade_sub">+4</span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">루쥬 쀠르 꾸띄르 더 볼드</p>
+                            <p class="Product_sub_name">더 볼드 립스틱</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">53,000원</span>
+                                <span class="date">2022/10/15</span>
+
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/skincare1.png"
+                                        alt="퓨어샷 아이 리부트 세럼"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox hidecolorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#D3B291"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#C3A080"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#D5AE85"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#E2BFA9"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#EFD2C0"></div>
+                                    </li>
+                                    <li><span class="shade_sub">0</span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">퓨어샷 아이 리부트 세럼</p>
+                            <p class="Product_sub_name">안티에이징 아이 세럼</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">112,000원</span>
+                                <span class="date">2022/09/30</span>
+
+                            </div>
+                        </a>
+                    </li>
+
+                    
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/skincare2.png"
+                                        alt="하이드라 바운스 에센스 인 로션"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox hidecolorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#D3B291"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#C3A080"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#D5AE85"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#E2BFA9"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#EFD2C0"></div>
+                                    </li>
+                                    <li><span class="shade_sub">0</span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">하이드라 바운스 에센스 인 로션</p>
+                            <p class="Product_sub_name">하이드라 바운스 에센스 인 로션</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">89,000원</span>
+                                <span class="date">2022/09/10</span>
+
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="sub_productbox">
+                        <img class="wishlist" src="img/productimg/empty_wishlist.svg" alt="위시리스트">
+                        <a href="#">
+                            <div>
+                                <div class="pr_imgbox"><img class="Product" src="img/productimg/purfume1.png"
+                                        alt="몽 파리 오 드 빠르펭"></div>
+                            </div>
+
+                            <span class="product_line"></span>
+
+                            <div class="colorbox hidecolorbox">
+                                <ul class="shadebox">
+                                    <li>
+                                        <div class="shade" style="background-color:#D3B291"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#C3A080"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#D5AE85"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#E2BFA9"></div>
+                                    </li>
+                                    <li>
+                                        <div class="shade" style="background-color:#EFD2C0"></div>
+                                    </li>
+                                    <li><span class="shade_sub">0</span></li>
+                                </ul>
+                            </div>
+
+                            <p class="Product_name">몽 파리 오 드 빠르펭</p>
+                            <p class="Product_sub_name">플로럴 시프레 향수</p>
+
+                            <div class="price_wrap">
+                                <span class="review_heart">
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                    <span><img src="img/productimg/fullheart_element.svg" alt="하트이미지">
+                                    </span>
+                                </span>
+
+                                <span class="won">103,000원</span>
+                                <span class="date">2022/10/31</span>
+
+                            </div>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer id="footer">
+
+        <div id="footer_list_wrap">
+
+            <div id="footer_logo">
+                <a href="index.html"><img src="img/logo_w.svg" alt="푸터로고"></a>
+            </div>
+
+            <div id="footer_list_container">
+                <ul id="footer_list">
+                    <li class="footer_title boutique"><a href="#">부띠끄 찾기</a></li>
+
+                    <li class="footer_title"><a href="#">고객 서비스</a>
+                        <ul class="footer_subbox">
+                            <li class="footer_text"><a href="#">고객센터</a></li>
+                            <li class="footer_text"><a href="#">이메일문의</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="footer_title"><a href="#">온라인 서비스</a>
+                        <ul class="footer_subbox">
+                            <li class="footer_text"><a href="#">주문 현황 확인</a></li>
+                            <li class="footer_text"><a href="#">비회원 주문 확인</a></li>
+                            <li class="footer_text"><a href="#">배송/반품/교환 안내</a></li>
+                            <li class="footer_text"><a href="#">주문 결제 안내</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="footer_title"><a href="#">개인정보처리방침</a>
+                        <ul class="footer_subbox">
+                            <li class="footer_text"><a href="#">쿠키정책</a></li>
+                            <li class="footer_text"><a href="#">이용약관</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+            <p class="footer_line"></p>
+
+            <div id="f_guarnteed">
+
+                <img src="img/guarnteed.svg" alt="정품인증이미지">
+
+                <div id="sns_content">
+                    <ul class="sns_icon">
+                        <li><a class="facebook" href="https://ko-kr.facebook.com/yslbeautykorea/"><img
+                                    src="img/icon/facebook.png" alt="페이스북연결"></a></li>
+                        <li><a class="insta" href="https://www.instagram.com/yslbeauty/?hl=ko"><img
+                                    src="img/icon/insta.png" alt="인스타연결"></a></li>
+                        <li><a class="youtube" href="https://www.youtube.com/user/yslbeautykorea?app=desktop"><img
+                                    src="img/icon/youtube.png" alt="유튜브연결"></a></li>
+                        <li><a class="twitter" href="https://twitter.com/yslbeauty?lang=ko"><img
+                                    src="img/icon/twitter.png" alt="트위터연결"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer_line"></p>
+
+            <div id="f_legalNotice_wrap">
+
+                <p class="f_Notice">
+                    퍼스트데이터코리아(유) 구매안전(에스크로)서비스가맹점<br>
+                    고객님은 안전한 전자상거래를 위해 저희 쇼핑몰에서 가입한<br>
+                    퍼스트데이터코리아(유)의 구매안전서비스를 이용할 수 있습니다.
+                </p>
+
+                <div id="f_legalNotice_container">
+                    <ul class="f_legalNotice">
+                        <li class="legalNotice">
+                            <span>사업자명: 엘오케이(유) | 대표: 크리스티앙 마르코스 아리나이</span>
+                        </li>
+
+                        <li class="legalNotice">
+                            <span>사업자 등록번호: 220-81-73483<a class="leagal_a" href="#">(사업자정보 확인)</a></span>
+                        </li>
+
+                        <li class="legaNotice">
+                            <span>주소: 서울특별시 강남구 영동대로 517 아셈타워 31층</span>
+                        </li>
+
+                        <li class="legaNotice">
+                            <span>통신판매업신고: 2012-서울강남-01663</span>
+                        </li>
+
+                        <li class="legaNotice">
+                            <span>개인정보 관리 책임자: 박다현 | 고객케어센터: 080-835-0089</span>
+                        </li>
+
+                        <li class="legaNotice">
+                            <span> &copy; 2021 Yves Saint Laurent Cosmetics. ALL rights reserved.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </footer>
+
+</body>
+
+</html>
