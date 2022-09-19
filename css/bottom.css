@@ -1,0 +1,217 @@
+@charset "utf-8";
+
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #000;
+    ;
+}
+
+/*cursor: url('../cursor.cur'),auto;}*/
+
+.pdbn_ta,
+.pdbn_pc {
+    display: none;
+}
+
+#Promain {
+    position: relative;
+    width: 100vw;
+    height: 400vh;
+}
+
+.Promain_inner {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+}
+
+.Promain_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+.changeimg1,
+.changeimg2,
+.changeimg3 {
+    position: absolute;
+    transition: 0.2s;
+    opacity: 0;
+
+}
+
+.changeimg1.change,
+.changeimg2.change,
+.changeimg3.change {
+    opacity: 1;
+
+}
+
+.change_imgbox {
+    height: 490px;
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 0%;
+}
+
+.change_imgbox img {
+    width: 100%;
+    height: 100%;
+}
+
+.Promain_text_all {
+    position: absolute;
+    /* top: 5%;
+    left: 5%;  */
+    width: 100%;
+    height: 100vh;
+}
+
+.change_txtbox {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+
+}
+
+.ProMain_txttop {
+    overflow: hidden;
+    ;
+}
+
+.changebox1 .ProMain_txttop span,
+.changebox2 .ProMain_txttop span,
+.changebox3 .ProMain_txttop span {
+
+    display: block;
+    font-size: 1.5625rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    display: block;
+    transform: translateY(100%);
+    transition: .7s;
+
+}
+
+.changebox1.active .ProMain_txttop span,
+.changebox2.active .ProMain_txttop span,
+.changebox3.active .ProMain_txttop span {
+    transform: translateY(0%);
+}
+
+
+
+.ProMain_text {
+    font-size: 0.9375rem;
+    padding: 0.125rem 0;
+    letter-spacing: -0.5px;
+    overflow: hidden;
+}
+
+.ProMain_text span {
+    transition: 0.7s;
+    transform: translateY(100%);
+    display: block;
+}
+
+
+.changebox1.change .ProMain_text span,
+.changebox2.change .ProMain_text span,
+.changebox3.change .ProMain_text span {
+    transform: translateY(0%);
+}
+
+
+
+
+.ProMain_btn {
+    width: 70px;
+    height: 35px;
+    background-color: #fff;
+    border: 2px solid #131313;
+    color: #131313;
+    border-radius: 50px;
+    letter-spacing: 0.01875rem;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 550;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+.Probtn_box {
+    position: absolute;
+    top:19% ;
+    left: 5%;
+}
+
+
+
+@media screen and (min-width:769px) and (max-width:960px) {
+
+    .pdbn_mo,
+    .pdbn_pc {
+        display: none;
+    }
+
+    .pdbn_ta {
+        display: block;
+    }
+
+    .change_imgbox {
+        height: 590px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:961px) and (max-width:1200px) {
+
+    .pdbn_mo,
+    .pdbn_ta {
+        display: none;
+    }
+
+    .pdbn_pc {
+        display: block;
+    }
+
+    .change_imgbox {
+        height: 590px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:1200px) {
+
+    .pdbn_mo,
+    .pdbn_ta {
+        display: none;
+    }
+
+    .pdbn_pc {
+        display: block;
+    }
+
+    .change_imgbox {
+        height: 590px;
+        width: 100%;
+    }
+}

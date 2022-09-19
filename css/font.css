@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Vollkorn_italic';
+    src: url(../img/font/Vollkorn/Vollkorn-Italic-VariableFont_wght.ttf);
+    font-weight: italic;}
+
+
+ @font-face {
+    font-family: 'Vollkorn';
+    src: url(../img/font/Vollkorn/Vollkorn-VariableFont_wght.ttf);
+    font-weight: normal;}
+
+ @font-face {
+    font-family: 'Vollkorn_bold';
+    src: url(../img/font/Vollkorn/Vollkorn-Bold.ttf);
+    font-weight: bold;}
+
+@font-face {
+    font-family: 'Vera Humana 95';
+    src: url(../img/font/vera_humana_95/Verahb_italic.woff);
+   }
+     
+ 
+ 

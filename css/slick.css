@@ -1,0 +1,238 @@
+/*홍보 배너 영역*/
+
+
+#productMain {box-sizing: border-box;background: #000;} 
+
+.prMain_img_ta, .prMain_img_pc {display:none;} 
+
+
+.productMain_inner {
+width:100vw;
+height:100vh!important;
+background-color: #000;
+color:#fff;
+display: flex!important;
+flex-direction: column;
+flex-wrap: nowrap;
+justify-content: space-between;}
+
+
+.prMain_left {
+    flex-basis: 100%;
+
+    box-sizing: border-box;
+    text-align: center;
+    align-self: center;
+    justify-content: center!important;
+    display:flex;
+    flex-direction: column;
+}
+
+
+
+.prleft_txt {
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 45px;
+}
+
+.prleft_txt p span {
+    padding-right: 10px;
+
+}
+
+.prleft_txt p span {
+    display:block;
+}
+
+
+
+.prMain_right {
+    flex-basis: 100%;
+    height:50vh;
+
+    box-sizing: border-box;
+}
+
+
+.prMain_right img {
+    width: 100%;
+    height: 100%;
+}
+
+.prleft_txt2 p:nth-child(1) {
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 0.2rem;
+}
+
+.prleft_txt2 p:nth-child(2) {
+    font-size: 12px;
+    text-align: center;
+}
+
+
+.prMain_btn {
+ padding-top: 1rem;
+}
+
+.prMain_btn button {
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    border: 1px solid #000;
+    background: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    
+}
+
+
+
+
+
+.product-dots {position:absolute; bottom: 0%; left:50%; transform: translate(-50%,-50%); display: flex!important; justify-content:space-between;}
+
+.product-dots > li >button {font-size: 0; width: 48vw; height: 3px;   background: rgba(255,255,255,0.3); border: none;}
+.product-dots > li.slick-active button {background-color: #fff;}
+
+
+@media screen and (min-width:769px) and (max-width:961px) {
+
+    .prMain_img_ta {display:block;}
+    .prMain_img_mo{display:none;} 
+    .productMain_inner {
+        width:100vw;
+        height:100vh;
+        background-color: #000;
+        color:#fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;}
+
+        .prleft_txt {
+            display:flex;
+            flex-wrap: wrap;
+            width:100%;
+            justify-content: center;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 90px;
+        }
+
+        .prleft_txt2 p:nth-child(1) {
+            font-size: 24px;
+            text-align: center;
+            padding-bottom: 0.2rem;
+        }
+        
+        .prleft_txt2 p:nth-child(2) {
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .prMain_right {
+            flex-basis: 100%;
+            height:100vh;
+        
+            box-sizing: border-box;
+        }
+
+}
+
+@media screen and (min-width:961px) and (max-width:1200px) {
+
+    .prMain_img_ta {display:block;}
+    .prMain_img_mo{display:none;} 
+    .productMain_inner {
+        width:100vw;
+        height:100vh;
+        background-color: #000;
+        color:#fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;}
+
+
+        .prleft_txt {
+            display:flex;
+            flex-wrap: wrap;
+            width:100%;
+            justify-content: center;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 90px;
+        }
+
+        .prleft_txt2 p:nth-child(1) {
+            font-size: 24px;
+            text-align: center;
+            padding-bottom: 0.2rem;
+        }
+        
+        .prleft_txt2 p:nth-child(2) {
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .prMain_right {
+            flex-basis: 100%;
+            height:100vh;
+        
+            box-sizing: border-box;
+        }
+
+}
+
+@media screen and (min-width:1200px) {
+
+    .prMain_img_ta {display:block;}
+    .prMain_img_mo{display:none;} 
+
+    .productMain_inner {
+        width:100vw;
+        height:100vh;
+        background-color: #000;
+        color:#fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;}
+
+
+        .prleft_txt {
+            display:flex;
+            flex-wrap: wrap;
+            width:100%;
+            justify-content: center;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 90px;
+        }
+
+        .prleft_txt2 p:nth-child(1) {
+            font-size: 24px;
+            text-align: center;
+            padding-bottom: 0.2rem;
+        }
+        
+        .prleft_txt2 p:nth-child(2) {
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .prMain_right {
+            flex-basis: 100%;
+            height:100vh;
+        
+            box-sizing: border-box;
+        }
+
+}

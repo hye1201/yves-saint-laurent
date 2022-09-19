@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+.animated {animation-duration: 1s;}
+.animated_01s {animation-duration: 0.3s;}
+.delay-05s {animation-delay: 0.5s;}
+.delay-1s {animation-delay:1s;}
+.delay-15s {animation-delay:1.5s;}
+
+.fadeInLeft {animation-name: fadeInLeft;
+animation-fill-mode: both;}
+@keyframes fadeInLeft {
+    0% {opacity: 0; 
+        transform: translateX(-20px);}
+    100% {opacity: 1;
+          transform: translateX(0);}
+        }
+
+.fadeOutLeft {animation-name: fadeOutLeft;
+  animation-fill-mode: both;}
+        @keyframes fadeInLeft {
+            0% {opacity: 1; 
+                transform: translateX(0px);}
+            100% {opacity: 0;
+                  transform: translateX(-20px);}
+                }
+
+.fadeInUp {animation-name : fadeInUp; animation-duration: 0.5s ;
+  animation-fill-mode: both;}
+@keyframes fadeInUp {
+    0% {opacity: 0;
+        transform: translateY(20px);}
+    100% {opacity: 1;
+          transform: translateY(0);}
+        } 
+
+.fadeInOut {animation-name: fadeInOut;
+  animation-fill-mode: both;}
+@keyframes fadeInOut {
+    0% {opacity: 0;
+        transform: translateY(0);}
+    100% {opacity: 1;
+          transform: translateY(20px);}
+}
+
+
+.fadeIn {animation-name: fadeIn;
+animation-duration: 1s;
+animation-fill-mode: both;}
+@keyframes fadeIn {
+
+    from{ opacity: 0;}
+    to {opacity: 1;}
+}
+
+.cg_box1, .cg_box2, .cg_box3, .cg_box4 {visibility: hidden;}
+.fadeInUp, .fadeInLeft, .fadeInOut, .shake, .fadeInDown, .fadeIn {visibility: visible;}
+
+
+@keyframes shake {
+    0%, 100% {
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+  
+    10%, 30%, 50%, 70%, 90% {
+      -webkit-transform: translateX(-10px);
+      -ms-transform: translateX(-10px);
+      transform: translateX(-10px);
+    }
+  
+    20%, 40%, 60%, 80% {
+      -webkit-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+      transform: translateX(10px);
+    }
+  }
+  
+  .shake {
+    -webkit-animation-name: shake;
+    animation-name: shake;
+       -webkit-animation-duration:1s;
+    animation-duration:1s;
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  
+  .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+        -webkit-animation-duration:1s;
+    animation-duration:1s;
+  }
+
+
+  .fadeInOut {animation-name: fadeInOut;}
+  @keyframes fadeInOut {
+      0% {opacity: 0;
+          transform: translateY(0);}
+      100% {opacity: 1;
+            transform: translateY(20px);}
+  }
+
+ .logo_ani {animation-name: logo_ain;
+  animation-duration: 1s;}
+  @keyframes logo_ani {
+    0% {position:relative; top: 40%; left:48.5%;}
+    100% {position:relative; top: 20%; left:48.5%;}
+  }
+
+
+.TextUp {animation-name: TextUp;
+animation-duration: 0.5s;
+animation-fill-mode: both;}
+
+@keyframes TextUp {
+
+  from {transform: translateY(-40px);}
+  to {transform: translateY(0px);}
+  }
+
+.TextDown {animation-name: TextUp;
+animation-duration: 0.5s;
+animation-fill-mode: both;}
+
+@keyframes TextDown {
+
+  from {transform: translateY(0px);}
+  to {transform: translateY(-40px);}
+  }
+ 

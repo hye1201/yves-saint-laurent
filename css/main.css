@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+:after, :before {box-sizing: border-box;}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+body {font-family: 'Noto Sans KR', sans-serif; font-size: 14px; color: #000; ;}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Noto+Sans+KR:wght@700&family=Noto+Serif+KR:wght@500&family=Noto+Serif:ital@1&display=swap');
+
+
+.main1_prev_text {
+    width:100vw; 
+    height:100vh; 
+    transform-origin: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+.main1_prev {
+    background: url('../img/bannerimg/main_bg.png') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width:100%; 
+    transition: 1s;
+    transform: scale(0.7);
+}
+
+.main1_prev_text p {
+    color: #fff;
+    overflow:hidden;
+    font-size: 77px;
+    font-weight: bold;
+}
+
+.main1_prev_text p span {
+    display: block;
+    transition: 1.5s;
+}
+
+.main1_prev_text p:nth-child(1) span {
+    transform: translateY(100%);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: italic;
+}
+
+.main1_prev_text p:nth-child(2) span {
+    transform: translateY(130%);
+}
+
+.main1_prev_text p:nth-child(3) span {
+    transform: translateY(180%);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: italic;
+}
+
+.main1_prev.active .main1_prev_text:nth-child(1) span,
+.main1_prev.active .main1_prev_text:nth-child(2) span,
+.main1_prev.active .main1_prev_text:nth-child(3) span,
+.main1_prev.active .main1_prev_text:nth-child(4) span
+{transform: translateY(0);}
+
+.main1_prev.scale {
+    transform: scale(1);
+}
+
+.main1_prev.change .main1_prev_text {
+    opacity:0;
+    transition: 0.5s;
+}
+
+.main1_prev.remove{
+    display:none;
+
+}
+
+.main1 {visibility: hidden;}
+
+.main1.on {
+    width:100vw;
+    height:100vh;
+    visibility: visible;
+    transition: 1s;
+ 
+    
+}
+
+.main1.on .main1_bg {
+    width:100vw;
+    height:100vh;
+    background: url(../img/bannerimg/main_bg.png)no-repeat center center; 
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+
+
+
+.main1.on .main1_bg .main1_text {
+    width:100vw; 
+    height:100vh; 
+    transform-origin: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    transition: 1s;
+}
+
+.main1.on .main1_bg .main1_text p {
+    color: #fff;
+    overflow:hidden;
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.main1.on .main1_bg .main1_text p span{
+    display: block;
+    transition: 1s;
+}
+
+.main1.on .main1_bg .main1_text p:nth-child(1) span {
+    transform: translateY(100%);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: italic;
+}
+
+
+.main1.on .main1_bg .main1_text p:nth-child(2) span {
+    transform: translateY(130%);
+}
+
+
+.main1.on .main1_bg .main1_text p:nth-child(3) span {
+    transform: translateY(180%);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: italic;
+}
+
+.main1.on .main1_bg.active .main1_text  p:nth-child(1) span,
+.main1.on .main1_bg.active .main1_text  p:nth-child(2) span,
+.main1.on .main1_bg.active .main1_text  p:nth-child(3) span {
+    transform: translateY(0);
+}
+
+
+.main1_text.opacity {
+    opacity: 0;
+}
+@media screen and (min-width:769px)  {
+
+    .main1.on .main1_bg .main1_text p {font-size: 77px;}
+
+}
+
+
+ 
+ 
+ 

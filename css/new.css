@@ -1,0 +1,123 @@
+/*홍보 배너 영역*/
+
+.aa
+ {width:100vw;
+height:100vh;}
+
+#productMain {box-sizing: border-box;background: #000;
+height: 200vh;} 
+
+
+
+.productMain_inner {
+width:100vw;
+height:100vh;
+background-color: #000;
+color:#fff;
+display: flex;
+flex-wrap: nowrap;
+justify-content: space-between;}
+
+
+.prMain_left {
+    flex-basis: 100%;
+    text-align: center;
+    align-self: center;
+    box-sizing: border-box;
+
+    transition: 1s;
+transform: translateX(-100%);}
+.slide1.on {transform: translateX(0%);}
+.slide2.on {transform: translateX(0%);}
+
+.prleft_txt {
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 90px;
+}
+
+.prleft_txt p span {
+    padding-right: 10px;
+
+}
+
+.prleft_txt p {overflow: hidden;}
+
+.prleft_txt p span {
+    display:block;
+    transition: 1s;
+    /* transform: translateY(100%); */
+
+}
+
+.prleft_txt.active p span {
+    transform: translateY(0%);
+
+}
+
+
+.prMain_right {
+    flex-basis: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.prMain_right img {
+    width: 100%;
+    height: 100%;
+}
+
+.prleft_txt2 p:nth-child(1) {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 0.2rem;
+}
+
+.prleft_txt2 p:nth-child(2) {
+    font-size: 17px;
+    text-align: center;
+}
+
+.prleft_txt2 p {
+    overflow: hidden;
+}
+
+.prleft_txt2 p span {
+    display: block;
+    transition: 1s;
+    /* transform: translateY(100%); */
+}
+
+.prleft_tet2.active p span {
+    transform: translateY(0);
+}
+
+.prMain_btn {
+    padding-top: 1rem;
+}
+
+.prMain_btn button {
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    border: 1px solid #000;
+    background: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    
+}
+
+
+.bnMain_btnbox {
+    padding-top: 1rem;
+    padding-left: 24px;
+}
+
+
+
+
